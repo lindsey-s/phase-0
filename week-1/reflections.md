@@ -53,3 +53,33 @@ I think the most important thing we learned in this exercise is how to get aroun
 
 #1.4 Forking and Cloning
 
+*If you were going to write instructions for a new person on how to create a new repo, fork a repo, and clone a repo, what would they be?*
+
+_Creating a new repository is easy! Check it:_
+
+- Navigate to your GitHub profile and click the + icon at the top right.
+- Choose “New repository” from the drop down list and complete the next page.
+- Name your new repository (hint: the best names are descriptive and short)
+- Decide if you want a public or private repository
+- Select the licensure you want
+- Finish up by clicking the green “Create Repository” button
+
+_To Fork and Clone a repository:_
+
+- Navigate to your chosen repository (called repo for short) in GitHub and hit the “Fork” button at the top right
+  - This button copies the repo and adds it to your GitHub profile in one easy button. Cool huh?
+- Now you want to get a local copy of that repo on your computer and to do this we’ll clone it to our local machine. We’ll be using our command line to clone - but first we’ll need the link from GitHub.
+  - After forking the repo to your username you should be automatically in your copy of the repo - the url should be something like this: https://github.com/your_username_here/your_forked_repo_name
+  - from this page simply copy the URL on the bottom right of your screen under "HTTPS clone URL” - now we’re ready for the command line!
+- Open your terminal and navigate to the directory in which you want to store your local copy of this repo
+- Type the command: git clone <paste the url you copied from GitHub here> and hit enter
+
+Voila! Success - you have a local copy of the repo on your machine!
+
+*Why would you fork a repository as opposed to create a new one?*
+
+Forking a repo copies everything in one fell swoop. Creating your own copy would require setting up and saving your own files and directories and all their content, links, resources. Why re-do when you can simply fork? But that’s the simple answer - I also think that forking a repo is the major way to jump in and git gitin’ while the git is good. After all, if you can see the repo it’s public and therefore open-source. You could fork a repo and contribute or collaborate. Or build something that integrates with another’s code. You could play with code and try to figure out new things and understand how it works.
+
+*What struggles did you have setting up git and GitHub? What did you learn in the process?*
+
+I struggled with troubleshooting (I had to fix my sublime path…that was hard). But aside from that - I’m excited that setting up git and GitHub was relatively easy. I learned a lot in the process, however. Prior to phase 0 I read about forking and cloning and gone through the GitHub tutorials but had no practical experience. I couldn’t answer why or when you would do or use any of this. It just felt like word soup that I had to come back to and figure out. I worried that I would have to do this on my own and was so relieved that the last few assignments have prepared us so well. So now that I understand the principles of version control and more about why we need and use git, I find the way GitHub works intuitive. I can easily see why you need a local copy even though repos are stored and easily accessible on GitHub. I’m eager to get in there and start committing and pushing!
