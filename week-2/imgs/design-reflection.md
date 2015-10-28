@@ -1,6 +1,6 @@
 #Design Reflection
 
-![Site Map Draft](/files/Users/lindseystevenson/documents/dbc/github/phase-0/week-2/imgs/site-map.png)
+![Site Map Draft](files/Users/lindseystevenson/documents/dbc/github/phase-0/week-2/imgs/site-map.png)
 
 What are the 6 Phases of Web Design?
 What is your site's primary goal or purpose? What kind of content will your site feature?
