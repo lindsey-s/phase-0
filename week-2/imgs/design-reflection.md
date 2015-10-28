@@ -1,6 +1,6 @@
 #Design Reflection
 
-![Site Map Draft](phase-0/week-2/imgs/site-map.png)
+![Site Map Draft](site-map.png "Site Map")
 
 ###What are the 6 Phases of Web Design?
 1. Information Gathering
@@ -57,6 +57,6 @@ User experience design is the idea of designing projects with the end user's nee
 UX design is valuable because as it informs our design choices, we are actively creating better experiences for the users. That may sound a bit recursive or circular but it really is that simple. It's easiest to understand the effect of UX design when you contrast it with previous design decision flow. In short - in the past designers made decisions based on their own assessments of content and creativity and balanced that with only the Yes/No test of whether the client liked the design. You can quickly imagine how this type of thinking could under-emphasize (or completely cut out) the feedback of users.
 
 ###Which parts of the challenge did you find tedious?
-Ugh - that image up top. I could not get the relative path to work in my markdown file. I plan to come back and try to trouble-shoot this some more later in the week if I can.
+Ugh - that image up top! I could not get the relative path to work in my markdown file for the life of me. I finally had a brainwave - I had to move the reflection back into the imgs directory. I wanted it to be outside that directory since the title of it suggests it should only contain images... c'est la vie.
 
 Otherwise - I find UX intuitive (so far!) and am excited to do more!
