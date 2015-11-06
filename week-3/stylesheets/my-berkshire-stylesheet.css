@@ -2,15 +2,30 @@
 
 What is important to know when linking an external file (like a stylesheet) to an HTML file?
 
+It's important to link stylesheets with the apporpraite attributes (as described below) as well as to link it early in the head element. Linking the stylesheet prior to other elements in the head ensures the browswer will load your formatting and leave enough room for photos and other sized elements. The exception is when linking a responsive element (not sure of the proper tag) which will detect the screen size or device of the user. Link your stylesheet AFTER the responsive tag(s) so the browswer only has to fetch one set of styles.
+Proper stylesheet link format:
+<link href"enter_file_name_or_path_here.css" type="text/css" rel="stylesheet" />
 
+note the type and rel (for relationship) attributes do not need to change.
 
 What tricks did you use to help you with positioning? How hard was it to get the site as you wanted it?
 
+Positioning the columns was difficult - we tried several different strategies before we hit on a successful one. After playing with column-count, column-span and really going down a rabbit hole with margins and pixels, we finally landed on the float and width: x% format. Then it was just a matter of making sure we liked the outcome. It wasn't difficult per se - just a bit frustrating as it felt quite "fiddly." I think in future we will both find this easier.
+
 What CSS did you use to modify the element style (like size, color, etc.)
+
+We relied heavily on class and type selectors to style the font properties. This was fun as it gave us a good understanding of both inheritance and specificty. At one point we had styling elements on the <li> elements and were slightly perplexed at how we could update the text on the <a> element but not the <li> text which surrounded the <a> element. As you can see, we worked it out below!
 
 Did you modify the HTML to include classes or ids? If so, which did you choose and why? If you didn't, how would you know which one to add to your HTML?
 
+Indeed we really used class and used only one id. Using class was a great way to style chunks of text and sort of allowed us to get around specificty issues. It was also a great way to re-use CSS formatting in more than one place on the page (e.g. the horizontal lines).
+
 When you compared your site to the actual code base, which do you think had cleaner code that followed best practices and why?
+
+My code is more DRY (don't repeat yourself)
+My code styles using a separate CSS stylsheet as opposed to inline HTML4/CSS styling
+My code uses CSS to create the horizontal lines and columns (not the html table and hr elements)
+My code makes use of best practices with HTML5 semantic elements like section and footer, and with id's such as 'top' to make it more accessible and parseable.
 
 */
 
