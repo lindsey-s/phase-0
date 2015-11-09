@@ -12,21 +12,23 @@ An integer is any whole number, negative or positive. A float is a floating poin
 
 Float division is the normal division you are used to from calculators and math class. 5/2 is 2 and a half, or 2.5. To make Ruby express this, you **must** use floats. In this case, you would use 5.0/2.0 in order to get 2.5 as the result.
 
-Otherwise, if you just use the integers 5 and 2, the result of this integer divison is 2. It may be most helpful to think of this as rounding down to the nearest whole number - and that is cerainly true - but it's important to understand the implications here. Integer division is saying that 2 fits into 5 2 times only. This is useful when you think about things that cannot be divided.
+Otherwise, if you just use the integers 5 and 2, the result of this integer division is 2. It may be most helpful to think of this as rounding down to the nearest whole number - and that is certainly true - but it's important to understand the implications here. Integer division is saying that 2 fits into 5 2 times only. This is useful when you think about things that cannot be divided.
 
 ## Hours in a year:
-'''
+
+```
 puts 24 * 365
 8760
 => nil
-'''
+```
 
 ## Minutes in a decade:
-'''
+
+```
 puts (60 * 8760) * 10
 5256000
 => nil
-'''
+```
 
 ## How does Ruby handle addition, subtraction, multiplication, and division of numbers?
 
