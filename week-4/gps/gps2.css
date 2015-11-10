@@ -1,3 +1,46 @@
-html {
-  background-color: azure;
+* {
+  font-family: sans-serif;
+}
+
+header p {
+  background-color: lightcyan;
+  width: 100%;
+  text-align: bottom;
+  margin-top: 0;
+  padding-top: 2.5em; padding-bottom: 2.5em;
+  padding-left: 4%; padding-right: 4%;
+  }
+
+header h1 {
+  background-image: url(github-background.png);
+  width: 100%;
+  text-align: bottom;
+  left: 0; top: 0;
+  color: white;
+  margin: 0;
+  padding-top: 3.5em;
+  padding-bottom: 1em;
+  padding-left: 4%;
+}
+
+section {
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+    margin: 4%;
+}
+
+summary {
+    background: #888;
+}
+
+details p {
+    background: #ccc;
+}
+
+footer {
+  background-color: lightcyan;
+  width: 100%;
+  padding-top: 2.5em; padding-bottom: 2.5em;
+  padding-left: 4%; padding-right: 4%;
 }
