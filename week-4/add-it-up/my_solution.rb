@@ -62,7 +62,7 @@ def sentence_maker(my_sentence_array)
   sentence = ""
 
     my_sentence_array.each do |word|
-      sentence << (word + " ")
+      sentence << (word.to_s + " ")
     end
 
   return sentence.chomp(" ").capitalize + "."
@@ -70,6 +70,8 @@ def sentence_maker(my_sentence_array)
 end
 
 puts sentence_maker(["all", "my", "socks", "are", "dirty"])
+
+puts sentence_maker(["there", "are", 40, "million", "ants", "in", "the", "kitchen"])
 
 # 6. sentence_maker refactored solution
 
