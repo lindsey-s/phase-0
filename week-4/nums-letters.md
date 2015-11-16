@@ -1,5 +1,14 @@
 # 4.2 Reflection
 
+### Defining Variables Solution
+[define variables](https://github.com/lindsey-s/phase-0/blob/master/week-4/defining-variables.rb)
+
+### Simple Strings Methods Solution
+[simple strings](https://github.com/lindsey-s/phase-0/blob/master/week-4/simple-string.rb)
+
+### Local Vairables and Basic Arithmetical Operations Solution
+[local variables and basic arithmetic](https://github.com/lindsey-s/phase-0/blob/master/week-4/basic-math.rb)
+
 ## What does `puts` do?
 
 `puts` simply prints whatever follows it to the console. It's important to understand that it actually **returns** `nil`, which means that Ruby won't store anything for later when you use `puts` instead of `return`.
