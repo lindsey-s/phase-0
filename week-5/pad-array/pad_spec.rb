@@ -1,4 +1,4 @@
-require_relative "my_solution"
+  require_relative "my_solution"
 
 describe "pad!" do
   let!(:empty_array)  { [] }
