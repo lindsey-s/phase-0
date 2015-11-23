@@ -24,29 +24,101 @@ whole_cohort_array = ["Jack Abernethy", "Mohammad Amin", "Zollie Barnes", "Reube
 
 # --- Release 2: Initial Solution ---
 
-def accountability_groups(everyone)
-  #if everyone.length / 5 == 0
-    total_groups = everyone.length/5
+def accountability_groups(everyone) # takes a hash
 
-    group_hash = everyone.each_with_object(Hash.new(0)) { |name, group_num| group_num[name] = rand(1..total_groups) }
+  if everyone.length / 5 == 0
+    total_groups = everyone.length /  5
+  else
+    total_groups = everyone.length / 4 + 1
+  end
 
-    sorted_groups = group_hash.sort_by { |name, group_num| group_num }
+  group_hash = {}
 
-    p sorted_groups
+  everyone.each do |name, group_num|
+    group_num += rand(1..total_groups)
+    group_hash[name] = group_num
+  end
 
-  #elsif names.length / 4 == 0
-    #create (everyone/4) groups
-  #else
-    #create ( (everyone/5) +1 ) groups
-  #end
+  p group_hash.sort_by { |name, group_num| group_num }
+
 end
 
-accountability_groups(whole_cohort_array)
+# This is my solution after 3 hours - this is not going well! My method doesn't account for how amny people are in each group yet - but it is random. I need to try this with a loop but am struggling to continually add to the same hash or array inside the loop.
+
+# Additional Pseudocode
+
+=begin
+
+Issue each persona a number 1 through total groups
+add each person to hash
+group hash by group number
+
+Each person starts with group num = 0
+add each person to hash individually
+As they are added, add their group num + random number in 1..total groups
+group hash by group number
+
+Each person starts with group num = 0
+establish new hash of nested arrays
+while group_num.size < (whole_hash.size / total_groups)
+  add each person to hash and add a number 1..total groups to their group number
+  end
+repeat loop for all items in hash
+group by group_num
+
+=end
 
 # --- Release 3: Add Complexity ---
 
 # --- Release 4: Refactor ---
 
+#def accountability_groups(everyone) # takes a hash
+
+#  if everyone.length / 5 == 0
+#    total_groups = everyone.length /  5
+#  else
+#    total_groups = everyone.length / 4 + 1
+#  end
+
+#  x = everyone.length / total_groups
+
+#  group_hash = {}
+
+#  while group_hash.size < x
+#    everyone.each do |name, group_num|
+#    group_num += rand(1..total_groups)
+#    end
+#  end
+
+#  p everyone
+#  p group_hash.group_by { |name, group_num| group_num }
+
+# end
+
+#accountability_groups(whole_cohort_hash)
+
 # --- Release 5: Driver Code ---
 
+accountability_groups(whole_cohort_hash)
+
 # --- Release 6: Reflection ---
+
+# What was the most interesting and most difficult part of this challenge?
+
+# This challenge was pretty awful. After 4 hours I have a barely working method that has no control for the total number of people in each group.
+
+# Do you feel you are improving in your ability to write pseudocode and break the problem down?
+
+# I'm disheartened to be honest - I honestly don't know if the problem is in pseudocoding or in simply trying to execute this code. I plan to have a one on one with our instructor and see if I can figure out the control flow loop for group size and iteration of adding the random group number.
+
+# Was your approach for automating this task a good solution? What could have made it even better?
+
+# nope. It could be better if it actually solved the problem!
+
+# What data structure did you decide to store the accountability groups in and why?
+
+# I think a hash is the correct structure since we want to store a name and a group number. I'm happy with the output of the program (though it could be prettier) which returns each person in their own array with their group number and each person is grouped witht their group. However, I'm sure there's another ruby method that would return nested arrays with every group in their own array as well.
+
+# What did you learn in the process of refactoring your initial solution? Did you learn any new Ruby methods?
+
+# still loving the group_by method - see my blog post!
