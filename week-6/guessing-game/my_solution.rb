@@ -6,7 +6,7 @@
 
 # Pseudocode
 
-# Input:
+# Input: a new guessing game (takes an integer); a new guess (takes an integer)
 # Output:
 # Steps:
 
