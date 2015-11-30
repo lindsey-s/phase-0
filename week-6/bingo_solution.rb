@@ -1,6 +1,6 @@
 # A Nested Array to Model a Bingo Board SOLO CHALLENGE
 
-# I spent [3] hours on this challenge.
+# I spent [4] hours on this challenge.
 
 
 # Release 0: Pseudocode
@@ -29,6 +29,61 @@
 
 # Initial Solution
 
+# class BingoBoard
+
+#   def initialize(board)
+#     @bingo_board = board
+#   end
+
+#   def call
+
+#     @bingo_letters = ['B', 'I', 'N', 'G', 'O']
+#     @bingo_call = @bingo_letters.sample + rand(1..100).to_s
+#     p "The call is: #{@bingo_call}"
+
+#     @call_letter = @bingo_call.slice(0,1)
+#     @call_number = @bingo_call.slice(1,2).to_i
+
+#     if @call_letter == 'B'
+#       @call_index = 0
+#     elsif @call_letter == 'I'
+#       @call_index = 1
+#     elsif @call_letter == 'N'
+#       @call_index = 2
+#     elsif @call_letter == 'G'
+#       @call_index = 3
+#     elsif @call_letter == 'O'
+#       @call_letter = 4
+#     end
+
+#   end
+
+#   def check
+#     call
+#     @checked_board = @bingo_board.dup
+
+#     @checked_board.each do |row|
+#         if row[@call_index] == @call_number
+#           row[@call_index] = 'x'
+#         end
+#     end
+
+#     display_board
+#   end
+
+#   def display_board
+#     p 'B   I   N   G   O'
+#     p @checked_board[0]
+#     p @checked_board[1]
+#     p @checked_board[2]
+#     p @checked_board[3]
+#     p @checked_board[4]
+#     end
+
+# end
+
+# Refactored Solution
+
 class BingoBoard
 
   def initialize(board)
@@ -36,10 +91,10 @@ class BingoBoard
   end
 
   def call
-
     @bingo_letters = ['B', 'I', 'N', 'G', 'O']
-    @bingo_call = @bingo_letters.sample + (rand(1..100).to_s)
-    p @bingo_call
+
+    @bingo_call = @bingo_letters.sample + rand(1..100).to_s
+    p "The call is: #{@bingo_call}"
 
     @call_letter = @bingo_call.slice(0,1)
     @call_number = @bingo_call.slice(1,2).to_i
@@ -53,7 +108,7 @@ class BingoBoard
     elsif @call_letter == 'G'
       @call_index = 3
     elsif @call_letter == 'O'
-      @call_letter = 4
+      @call_index = 4
     end
 
   end
@@ -62,30 +117,23 @@ class BingoBoard
     call
     @checked_board = @bingo_board.dup
 
-    @checked_board.each do |row|
+    @checked_board.map do |row|
         if row[@call_index] == @call_number
           row[@call_index] = 'x'
         end
     end
 
     display_board
-
   end
 
   def display_board
-    p 'B   I   N   G   O'
-    p @checked_board[0]
-    p @checked_board[1]
-    p @checked_board[2]
-    p @checked_board[3]
-    p @checked_board[4]
+    p 'B    I    N    G    O'
+    @checked_board.each do |row|
+      p "#{row[0]}   " + "#{row[1]}   " + "#{row[2]}   " + "#{row[3]}   " + "#{row[4]}"
     end
+  end
 
 end
-
-# Refactored Solution
-
-
 
 # DRIVER CODE (I.E. METHOD CALLS) GO BELOW THIS LINE
 board = [[47, 44, 71, 8, 88],
@@ -121,14 +169,27 @@ new_game.check
 
 # What methods did you use to access and modify the array?
 
-
+# I stuck to #each and #map this time around. I wanted to play with more but I just ran
+# out of time!
 
 # Give an example of a new method you learned while reviewing the Ruby docs. Based on what you see in the docs, what purpose does it serve, and how is it called?
 
-
+# learned another variation of the #slice method for strings. You can specify which index
+# you want to start with and then a range for the number of indecies (or characters) to
+# cycle through. This returns a new string with the characters you specified or nil. It's
+# still giving me some trouble since it sometimes returns nil in my current program based on
+# the number of characters (single vs double-digit integers for the bingo call) and I just
+# ran out of time to get this refactored and corrected.
 
 # How did you determine what should be an instance variable versus a local variable?
 
-
+# any variable that I wanted access to in another method in the class was an instance
+# variable - I used very few local variables and I thinkt that's actually helpful in terms
+# of readability of the code.
 
 # What do you feel is most improved in your refactored solution?
+
+# I fixed a bug (I had the wrong variable name listed for 'O' on line 56 of my initial
+# solution!) and was able to iterate through the array to DRY up the #display_board
+# method. I would have liked to search through the ruby docs some more and work on
+# keeping track of my checked_board variable in a more permanent way within one game.
