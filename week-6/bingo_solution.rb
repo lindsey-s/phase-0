@@ -86,38 +86,69 @@
 
 class BingoBoard
 
-  def initialize(board)
-    @bingo_board = board
+  def initialize
+    @bingo_board = gen_board
+  end
+
+  def gen_board
+    board = []
+    letters = ['B', 'I', 'N', 'G', 'O']
+
+    letters.each do |letter|
+      board << valid_column(letter)
+    end
+
+    board[2][2] = 'x'
+    legal_board = board.transpose
+  end
+
+  def valid_column(letter)
+    sub_array = Array.new(5) { rand(1..15) } if letter == 'B'
+    sub_array = Array.new(5) { rand(16..30) } if letter == 'I'
+    sub_array = Array.new(5) { rand(31..45) } if letter == 'N'
+    sub_array = Array.new(5) { rand(46..60) } if letter == 'G'
+    sub_array = Array.new(5) { rand(61..75) } if letter == 'O'
+    return sub_array if sub_array.uniq.length == 5
+    valid_column(letter)
   end
 
   def call
-    @bingo_letters = ['B', 'I', 'N', 'G', 'O']
+    letters_to_numbers = {
+      'B' => 0,
+      'I' => 1,
+      'N' => 2,
+      'G' => 3,
+      'O' => 4,
+    }
 
-    @bingo_call = @bingo_letters.sample + rand(1..100).to_s
+
+    @bingo_call = valid_num_letter_call(letters_to_numbers.keys.sample)
+
     p "The call is: #{@bingo_call}"
 
     @call_letter = @bingo_call.slice(0,1)
     @call_number = @bingo_call.slice(1,2).to_i
+    @call_index = letters_to_numbers[@call_letter]
 
-    if @call_letter == 'B'
-      @call_index = 0
-    elsif @call_letter == 'I'
-      @call_index = 1
-    elsif @call_letter == 'N'
-      @call_index = 2
-    elsif @call_letter == 'G'
-      @call_index = 3
-    elsif @call_letter == 'O'
-      @call_index = 4
-    end
+  end
 
+  def valid_num_letter_call(letter)
+    letter_to_number_range = {
+      'B' => (1..15),
+      'I' => (16..30),
+      'N' => (31..45),
+      'G' => (46..60),
+      'O' => (61..75),
+    }
+    range = letter_to_number_range[letter]
+    number = range.to_a.sample
+    letter + number.to_s
   end
 
   def check
     call
-    @checked_board = @bingo_board.dup
 
-    @checked_board.map do |row|
+    @bingo_board.map do |row|
         if row[@call_index] == @call_number
           row[@call_index] = 'x'
         end
@@ -128,22 +159,34 @@ class BingoBoard
 
   def display_board
     p 'B    I    N    G    O'
-    @checked_board.each do |row|
+    @bingo_board.each do |row|
       p "#{row[0]}   " + "#{row[1]}   " + "#{row[2]}   " + "#{row[3]}   " + "#{row[4]}"
     end
+  end
+
+  def solve
+    until @bingo_board.flatten.uniq == ['x']
+      check
+      sleep 0.1
+    end
+    p "BINGO!!!"
   end
 
 end
 
 # DRIVER CODE (I.E. METHOD CALLS) GO BELOW THIS LINE
-board = [[47, 44, 71, 8, 88],
-        [22, 69, 75, 65, 73],
-        [83, 85, 97, 89, 57],
-        [25, 31, 96, 68, 51],
-        [75, 70, 54, 80, 83]]
+# board = [[47, 44, 71, 8, 88],
+#         [22, 69, 75, 65, 73],
+#         [83, 85, 97, 89, 57],
+#         [25, 31, 96, 68, 51],
+#         [75, 70, 54, 80, 83]]
 
-new_game = BingoBoard.new(board)
-new_game.check
+# new_game = BingoBoard.new(board)
+# new_game.solve
+
+new_game = BingoBoard.new
+new_game.solve
+
 
 #Reflection
 
