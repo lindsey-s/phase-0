@@ -91,8 +91,11 @@ console.log(michaelPhelps.name + " " + michaelPhelps.sport + " " + michaelPhelps
 
 // What are constructor functions?
 
-//
+// Constructor functions create an object, literal notation sets a variable to the result of
+// a function. Literal notation is useful for just single uses - and constructor function
+// notation is useful when you need to get multiple instances of an object.
 
 // How are constructors different from Ruby classes (in your research)?
 
-//
+// I have no idea - this was not a good introduction to constructors for me - I'm going to
+// work on the code academy course and try reading about them in our book.
