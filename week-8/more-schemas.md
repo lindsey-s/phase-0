@@ -4,12 +4,12 @@
 
 A book is published by one publishing house. Details about the book and the publisher are not repeated in either table.
 
-![one-to-one schema](../imgs/one-to-one-schema.png "Book and Publisher - One to One relationship")
+![one-to-one schema](imgs/one-to-one-schema.png "Book and Publisher - One to One relationship")
 
 
 ## Release 4: many-to-many schema
 
-![many-to-many schema](../imgs/many-to-many-schema.png "Grocery List and Items - Many to Many relationship")
+![many-to-many schema](imgs/many-to-many-schema.png "Grocery List and Items - Many to Many relationship")
 
 ## Release 6: Reflect
 
