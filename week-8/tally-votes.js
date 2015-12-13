@@ -1,7 +1,7 @@
 // Tally Votes in JavaScript Pairing Challenge.
 
-// I worked on this challenge with:
-// This challenge took me [#] hours.
+// I worked on this challenge by myself
+// This challenge took me [3] hours.
 
 // These are the votes cast by each student. Do not alter these objects here.
 var votes = {
@@ -64,31 +64,86 @@ var officers = {
 
 // Pseudocode
 
+// tests 1 - 4: Bob should receive 3 votes for president. etc - GOAL:
+  // Bob's name must be pushed into voteCount as a property
+  // each vote for Bob should increment Bob's value by 1
+
+  // start by iterating over the votes object
+    // call each property in the votes object the voter
+  // access the voter's vote values (values of the voter property)
+    // access the values of the office properties in the voter, store this as new local variable
+  // if else branch to add vote to voteCount object
+    // if the newVote does not appear in that office in voteCount object, add it and set it equal to 1
+    // else increment that newVote by 1
+
+// tests 5 - 8: Louise should be elected President, etc - GOAL:
+  // the officers object must have only one name per office (one value per property)
+  // the value should be the name with the highest value from the voteCount object
+
+  // voteCount object is nested - each property is an office
+  // the value of each office property is another object
+  // the property is the name
+  // the value is the number of Votes
+
+  // start by iterating over the voteCount object
+    // call each property in the voteCount object office
+  // store new variable at 0 (this will hold the value of the votes - call it tally)
+  // access the office's values (person voted for, call this name)
+  // if the tally (aka vote) for the name is greater than current tally (0)
+    // add that name to officers object
+
+  // this will not work if there's a tie, it will return the second (or last) name with the
+  // highest vote count
 
 // __________________________________________
 // Initial Solution
 
+for (var voter in votes) {
+  for (var office in votes[voter]) {
+    var newVote = votes[voter][office];
 
+    if (!voteCount[office][newVote]) {
+      voteCount[office][newVote] = 1;
+    } else {
+      voteCount[office][newVote] += 1;
+    }
+  }
+};
 
-
-
-
+for (var office in voteCount) {
+  var tally = 0;
+  for (var name in voteCount[office]) {
+    var person = voteCount[office][name]
+    if (person > tally) {
+      tally = person;
+      officers[office] = name; };
+  }
+};
 
 // __________________________________________
 // Refactored Solution
 
-
-
-
-
+// I tried really hard to combine this into one function but couldn't get there
 
 // __________________________________________
 // Reflection
 
+// What did you learn about iterating over nested objects in JavaScript?
+// Were you able to find useful methods to help you with this?
+// What concepts were solidified in the process of working through this challenge?
 
+// I learned again to work carefully with nested objects - for me it's always about knowing
+// what kind of object (structure wise) you are working with - and constantly logging to the
+// console so you can visualize what structure you're working on. This challenge also helped
+// me conceptualize what structure I wanted the data to be in and then strategizing how to
+// get it there.
 
-
-
+// I took the advice of the challenge and stuck to for ... in loops. Looking at my solution
+// I might be able to refactor and use some built-in javascript methods but I'm finding those to
+// be so bulky looking that it really decreases readability for me. I prefer this simple code.
+// As I commented above, however, I was not able to refactor very much. I wanted to get it into
+// one single functiont which you could call with any set of votes but just couldn't get workable
+// code after 45 minutes of trying - so I had to move on.
 
 // __________________________________________
 // Test Code:  Do not alter code below this line.
